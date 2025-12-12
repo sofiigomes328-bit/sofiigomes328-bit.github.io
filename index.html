@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário Literário</title>
+
+    <style>
+        body {
+            background-color: rgb(255, 251, 251);
+            font-family: Arial;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #8733db;
+            color:rgb(234, 232, 232);
+        }
+
+        form {
+            background-color: rgb(157, 100, 208);
+            width: 320px;
+            padding: 15px;
+            margin: auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(79, 10, 175);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Descubra Seu Gênero Literário</h1>
+
+    <form>
+
+        <label>Seu nome:</label>
+        <input type="text" placeholder="Digite seu nome">
+
+        <label>Idade:</label>
+        <input type="number" placeholder="Digite sua idade">
+
+        <label>Email:</label>
+        <input type="email" placeholder="Digite seu email">
+
+        <label>Qual gênero você lê mais?</label>
+        <select>
+            <option value="">Selecione...</option>
+            <option>Romance</option>
+            <option>Suspense</option>
+            <option>Fantasia</option>
+            <option>Terror</option>
+            <option>Drama</option>
+            <option>Não leio nenhum</option>
+        </select>
+
+        <label>Por que você gosta desse gênero?</label>
+        <textarea placeholder="Explique com suas palavras..."></textarea>
+
+        <label>O que te faz perder o interesse em um livro?</label>
+        <textarea placeholder="Ex: história parada, muitos clichês..."></textarea>
+
+        <label>O que te faz gostar ainda mais de um livro?</label>
+        <textarea placeholder="Ex: personagens fortes, reviravoltas..."></textarea>
+
+        <label>Você já tentou outros gêneros além do seu favorito?</label>
+        <textarea placeholder="Fale sobre sua experiência com outros gêneros..."></textarea>
+
+        <label>Se você já leu outros gêneros, quais foram e por que você não gostou?</label>
+        <textarea placeholder="Ex: li fantasia, mas não gostei porque..."></textarea>
+
+        <label>Se você nunca leu outros gêneros, tente escrever o que poderia chamar sua atenção.</label>
+        <textarea placeholder="Baseie-se no que você imagina que te atrairia..."></textarea>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+</body>
+</html>
