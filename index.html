@@ -1,46 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Formulário Literário</title>
 
     <style>
         body {
-            background-color: rgb(255, 251, 251);
-            font-family: Arial;
+            background-color: #eee6f5;
+            font-family: Arial, sans-serif;
+            padding: 20px;
         }
 
         h1 {
             text-align: center;
             background-color: #8733db;
-            color:rgb(234, 232, 232);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
         }
 
         form {
-            background-color: rgb(157, 100, 208);
-            width: 320px;
-            padding: 15px;
+            background-color: #9b6bd6; 
+            width: 520px; 
+            padding: 25px;
             margin: auto;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            border-radius: 10px;
         }
 
         label {
             font-weight: bold;
+            display: block;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            color: white;
         }
 
         input, textarea, select {
             width: 100%;
-            margin-bottom: 12px;
+            padding: 9px;
+            border-radius: 5px;
+            border: none;
+            font-family: Arial;
+        }
+
+        textarea {
+            height: 85px;
+            resize: none;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            background-color: #f4ecfb;
         }
 
         button {
             width: 100%;
-            padding: 10px;
-            background-color: rgb(79, 10, 175);
+            padding: 13px;
+            margin-top: 22px;
+            background-color: #5a1fa6;
             color: white;
             border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
         }
+
+        button:hover {
+            background-color: #4a188c;
+        }
+
+        .lista {
+            width: 520px;
+            margin: 30px auto;
+            background-color: #aa6ae1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .lista h2 {
+            text-align: center;
+            color: #fefcff;
+            background-color: #4a188c;
+        }
+
+        .lista ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista li {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        li strong {
+            color: white;
+            background-color: #8733db;
+        }
+
     </style>
 </head>
 
@@ -67,7 +125,6 @@
             <option>Fantasia</option>
             <option>Terror</option>
             <option>Drama</option>
-            <option>Não leio nenhum</option>
         </select>
 
         <label>Por que você gosta desse gênero?</label>
@@ -85,12 +142,43 @@
         <label>Se você já leu outros gêneros, quais foram e por que você não gostou?</label>
         <textarea placeholder="Ex: li fantasia, mas não gostei porque..."></textarea>
 
-        <label>Se você nunca leu outros gêneros, tente escrever o que poderia chamar sua atenção.</label>
-        <textarea placeholder="Baseie-se no que você imagina que te atrairia..."></textarea>
-
         <button type="submit">Enviar</button>
 
     </form>
+
+    <div class="lista">
+
+    <h2>Gêneros Literários e o que eles oferecem</h2>
+
+    <ul>
+        <li>
+            <strong>Romance:</strong> indicado para quem gosta de histórias com sentimentos,
+            relações amorosas e desenvolvimento emocional dos personagens.
+        </li>
+
+        <li>
+            <strong>Suspense:</strong> ideal para leitores que gostam de mistério, tensão,
+            reviravoltas e histórias que prendem a atenção.
+        </li>
+
+        <li>
+            <strong>Terror:</strong> voltado para quem gosta de medo, suspense psicológico
+            e situações assustadoras.
+        </li>
+
+        <li>
+            <strong>Fantasia:</strong> recomendado para quem gosta de mundos imaginários,
+            magia, criaturas fantásticas e aventuras.
+        </li>
+
+        <li>
+            <strong>Drama:</strong> traz histórias mais realistas, com conflitos emocionais,
+            problemas sociais e reflexões sobre a vida.
+        </li>
+
+    </ul>
+
+</div>
 
 </body>
 </html>
