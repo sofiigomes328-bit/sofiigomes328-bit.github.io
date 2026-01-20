@@ -49,11 +49,6 @@
             resize: none;
         }
 
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            background-color: #f4ecfb;
-        }
-
         button {
             width: 100%;
             padding: 13px;
@@ -66,11 +61,7 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #4a188c;
-        }
-
-        .lista {
+        .tabela {
             width: 520px;
             margin: 30px auto;
             background-color: #9b6bd6;
@@ -78,107 +69,118 @@
             border-radius: 10px;
         }
 
-        .lista h2 {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
             text-align: center;
-            color: #fefcff;
+        }
+
+        th {
             background-color: #8733db;
-        }
-
-        .lista ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .lista li {
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        li strong {
             color: white;
-            background-color: #4a188c;
         }
-
     </style>
 </head>
 
 <body>
 
-    <h1>Descubra Seu Gênero Literário</h1>
+<h1>Descubra Seu Gênero Literário</h1>
 
-    <form>
+<form>
 
-        <label>Seu nome:</label>
-        <input type="text" placeholder="Digite seu nome">
+    <label>Seu nome:</label>
+    <input type="text" placeholder="Digite seu nome">
 
-        <label>Idade:</label>
-        <input type="number" placeholder="Digite sua idade">
+    <label>Idade:</label>
+    <input type="number" placeholder="Digite sua idade">
 
-        <label>Email:</label>
-        <input type="email" placeholder="Digite seu email">
+    <label>Email:</label>
+    <input type="email" placeholder="Digite seu email">
 
-        <label>Qual gênero você lê mais?</label>
-        <select>
-            <option value="">Selecione...</option>
-            <option>Romance</option>
-            <option>Suspense</option>
-            <option>Fantasia</option>
-            <option>Terror</option>
-            <option>Drama</option>
-        </select>
+    <label>Qual gênero você lê mais?</label>
+    <select onchange="mostrarGenero(this.value)">
+        <option value="">Selecione...</option>
+        <option value="0">Romance</option>
+        <option value="1">Suspense</option>
+        <option value="2">Fantasia</option>
+        <option value="3">Terror</option>
+        <option value="4">Drama</option>
+    </select>
 
-        <label>Por que você gosta desse gênero?</label>
-        <textarea placeholder="Explique com suas palavras..."></textarea>
+    <label>Por que você gosta desse gênero?</label>
+    <textarea placeholder="Explique com suas palavras..."></textarea>
 
-        <label>O que te faz perder o interesse em um livro?</label>
-        <textarea placeholder="Ex: história parada, muitos clichês..."></textarea>
+    <label>O que te faz perder o interesse em um livro?</label>
+    <textarea placeholder="Ex: história parada, muitos clichês..."></textarea>
 
-        <label>O que te faz gostar ainda mais de um livro?</label>
-        <textarea placeholder="Ex: personagens fortes, reviravoltas..."></textarea>
+    <label>O que te faz gostar ainda mais de um livro?</label>
+    <textarea placeholder="Ex: personagens fortes, reviravoltas..."></textarea>
 
-        <label>Você já tentou outros gêneros além do seu favorito?</label>
-        <textarea placeholder="Fale sobre sua experiência com outros gêneros..."></textarea>
+    <label>Você já tentou outros gêneros além do seu favorito?</label>
+    <textarea placeholder="Fale sobre sua experiência com outros gêneros..."></textarea>
 
-        <label>Se você já leu outros gêneros, quais foram e por que você não gostou?</label>
-        <textarea placeholder="Ex: li fantasia, mas não gostei porque..."></textarea>
+    <label>Se você já leu outros gêneros, quais foram e por que você não gostou?</label>
+    <textarea placeholder="Ex: li fantasia, mas não gostei porque..."></textarea>
 
-        <button type="submit">Enviar</button>
+    <button type="submit">Enviar</button>
 
-    </form>
+</form>
 
-    <div class="lista">
-
-    <h2>Gêneros Literários e o que eles oferecem</h2>
-
-    <ul>
-        <li>
-            <strong>Romance:</strong> indicado para quem gosta de histórias com sentimentos,
-            relações amorosas e desenvolvimento emocional dos personagens.
-        </li>
-
-        <li>
-            <strong>Suspense:</strong> ideal para leitores que gostam de mistério, tensão,
-            reviravoltas e histórias que prendem a atenção.
-        </li>
-
-        <li>
-            <strong>Terror:</strong> voltado para quem gosta de medo, suspense psicológico
-            e situações assustadoras.
-        </li>
-
-        <li>
-            <strong>Fantasia:</strong> recomendado para quem gosta de mundos imaginários,
-            magia, criaturas fantásticas e aventuras.
-        </li>
-
-        <li>
-            <strong>Drama:</strong> traz histórias mais realistas, com conflitos emocionais,
-            problemas sociais e reflexões sobre a vida.
-        </li>
-
-    </ul>
-
+<!-- TABELA (só exibição do resultado) -->
+<div class="tabela">
+    <table>
+        <tr>
+            <th>Gênero</th>
+            <th>Descrição</th>
+            <th>Conexão com você</th>
+        </tr>
+        <tr>
+            <td id="genero">---</td>
+            <td id="descricao">---</td>
+            <td id="conexao">---</td>
+        </tr>
+    </table>
 </div>
+
+<script>
+    let generos = [
+        "Romance",
+        "Suspense",
+        "Fantasia",
+        "Terror",
+        "Drama"
+    ];
+
+    let descricoes = [
+        "Sentimentos e relações amorosas.",
+        "Mistério, tensão e reviravoltas.",
+        "Mundos imaginários, magia e aventuras.",
+        "Medo, suspense psicológico e situações assustadoras.",
+        "Conflitos emocionais e reflexões sobre a vida."
+    ];
+
+    let conexoes = [
+        "Você se conecta com emoções intensas e histórias baseadas em sentimentos.",
+        "Você gosta de desafios mentais e histórias que prendem sua atenção.",
+        "Você se identifica com mundos imaginários e liberdade criativa.",
+        "Você busca sensações fortes e histórias que mexem com o psicológico.",
+        "Você se conecta com histórias realistas e reflexões profundas."
+    ];
+
+    function mostrarGenero(posicao) {
+        if (posicao !== "") {
+            document.getElementById("genero").innerHTML = generos[posicao];
+            document.getElementById("descricao").innerHTML = descricoes[posicao];
+            document.getElementById("conexao").innerHTML = conexoes[posicao];
+        }
+    }
+</script>
 
 </body>
 </html>
